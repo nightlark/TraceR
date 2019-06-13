@@ -174,7 +174,6 @@ Detailed instructions are available at https://silc.zih.tu-dresden.de/scorep-cur
 
     export SCOREP_ENABLE_TRACING=1
     export SCOREP_ENABLE_PROFILING=0
-    export SCOREP_REDUCE_PROBE_TEST=1
     export SCOREP_MPI_ENABLE_GROUPS=ENV,P2P,COLL,XNONBLOCK
 
  If Score-P prints a warning about flushing traces during the run, you may avoid them using::
@@ -183,6 +182,12 @@ Detailed instructions are available at https://silc.zih.tu-dresden.de/scorep-cur
     export SCOREP_EXPERIMENT_DIRECTORY=/p/lscratchd/<username>/...
 
 6. Run the binary and traces should be generated in a folder named scorep-\*.
+
+.. note::
+   For real-world MPI applications the performance can be low -- there is
+   a :download:`patch for Score-P <scorep-5.0.patch>` that you can apply
+   before building and installing Score-P. Then, before running the MPI program
+   also export SCOREP_REDUCE_PROBE_TEST=1.
 
 BigSim
 ^^^^^^
